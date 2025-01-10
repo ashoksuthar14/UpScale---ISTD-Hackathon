@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Ask Question{% endblock %}
+
+{% block content %}
+<div class="ask-question">
+    <h1>Ask a Question</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="author_name">Your Name</label>
+            <input type="text" id="author_name" name="author_name" class="answer-input" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="answer-input" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Question Details</label>
+            <textarea id="content" name="content" class="answer-input" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Post Question</button>
+    </form>
+</div>
+{% endblock %} 
