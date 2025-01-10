@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Manager Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Active Projects</h3>
+                <p class="stat-number">{{ projects|length }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Team Members</h3>
+                <p class="stat-number">{{ projects|map(attribute='assignments')|map('list')|map('length')|sum }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Active Courses</h3>
+                <p class="stat-number">{{ projects|map(attribute='assignments')|map('list')|map('length')|sum }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <a href="{{ url_for('manager.create_project') }}" class="action-card">
+            <i class="fas fa-plus-circle"></i>
+            <span>New Project</span>
+        </a>
+        <a href="#" class="action-card">
+            <i class="fas fa-user-plus"></i>
+            <span>Add Team Member</span>
+        </a>
+        <a href="#" class="action-card">
+            <i class="fas fa-book-medical"></i>
+            <span>Create Course</span>
+        </a>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="dashboard-section">
+        <div class="section-header">
+            <h2><i class="fas fa-tasks"></i> Active Projects</h2>
+            <a href="{{ url_for('manager.create_project') }}" class="btn-primary">
+                <i class="fas fa-plus"></i> New Project
+            </a>
+        </div>
+
+        {% if projects %}
+        <div class="project-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                <div class="project-status {{ 'active' if project.assignments.count() > 0 else 'pending' }}">
+                    {{ 'Active' if project.assignments.count() > 0 else 'Pending' }}
+                </div>
+                <h3>{{ project.name }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>{{ project.assignments.count() }} Members</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>{{ project.created_at.strftime('%Y-%m-%d') }}</span>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="{{ url_for('manager.edit_project', project_id=project.id) }}" class="btn-outline">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="{{ url_for('manager.assign_employee', project_id=project.id) }}" class="btn-outline">
+                        <i class="fas fa-user-plus"></i> Team
+                    </a>
+                    <a href="{{ url_for('manager.assign_courses', project_id=project.id) }}" class="btn-outline">
+                        <i class="fas fa-book"></i> Courses
+                    </a>
+                </div>
+
+                {% if project.assignments.count() > 0 %}
+                <div class="team-preview">
+                    <h4>Team Members</h4>
+                    <div class="team-avatars">
+                        {% for assignment in project.assignments %}
+                        <div class="avatar" title="{{ assignment.employee.username }}">
+                            {{ assignment.employee.username[:1] }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-clipboard"></i>
+            <h3>No Projects Yet</h3>
+            <p>Create your first project to get started</p>
+            <a href="{{ url_for('manager.create_project') }}" class="btn-primary">
+                <i class="fas fa-plus"></i> Create Project
+            </a>
+        </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %} 

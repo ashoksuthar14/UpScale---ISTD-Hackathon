@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Assign Courses{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="assign-courses-container">
+        <h1>Assign Courses to {{ project.name }}</h1>
+        
+        <!-- Project Employees -->
+        <div class="project-employees">
+            <h2>Project Team Members</h2>
+            <ul>
+                {% for employee in employees %}
+                <li>{{ employee.username }} ({{ employee.email }})</li>
+                {% else %}
+                <li>No employees assigned to this project</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Existing Courses -->
+        <div class="existing-courses">
+            <h2>Existing Courses</h2>
+            {% if existing_courses %}
+            <div class="courses-grid">
+                {% for course in existing_courses %}
+                <div class="course-card">
+                    <h3>{{ course.name }}</h3>
+                    <p>{{ course.description }}</p>
+                    <div class="course-details">
+                        <span class="badge">{{ course.category }}</span>
+                        <span class="badge">{{ course.platform }}</span>
+                        {% if course.is_mandatory %}
+                        <span class="badge badge-important">Mandatory</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No courses assigned yet.</p>
+            {% endif %}
+        </div>
+
+        <!-- Assign New Course -->
+        <div class="new-course-form">
+            <h2>Assign New Course</h2>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                
+                <div class="form-group">
+                    {{ form.course_name.label }}
+                    {{ form.course_name(class="form-control") }}
+                    {% if form.course_name.errors %}
+                        {% for error in form.course_name.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.description.label }}
+                    {{ form.description(class="form-control", rows=3) }}
+                    {% if form.description.errors %}
+                        {% for error in form.description.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.category.label }}
+                        {{ form.category(class="form-control") }}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.platform.label }}
+                        {{ form.platform(class="form-control") }}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.is_mandatory.label }}
+                        {{ form.is_mandatory(class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.employees.label }}
+                    {{ form.employees(class="form-control", size=5) }}
+                    {% if form.employees.errors %}
+                        {% for error in form.employees.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    <small class="form-text">Hold Ctrl/Cmd to select multiple employees</small>
+                </div>
+
+                {{ form.submit(class="btn") }}
+                <a href="{{ url_for('manager.dashboard') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} 

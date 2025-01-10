@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Project Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-project-diagram"></i>
+                <span>Project Hub</span>
+            </div>
+            <div class="sidebar-menu">
+                {% if current_user.is_authenticated %}
+                    {% if current_user.is_manager %}
+                        <a href="{{ url_for('manager.dashboard') }}" class="menu-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="{{ url_for('manager.create_project') }}" class="menu-item">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>New Project</span>
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('employee.dashboard') }}" class="menu-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="{{ url_for('employee.courses') }}" class="menu-item">
+                            <i class="fas fa-book"></i>
+                            <span>My Courses</span>
+                        </a>
+                    {% endif %}
+                    <a href="{{ url_for('auth.logout') }}" class="menu-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('auth.login') }}" class="menu-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="user-info">
+                    {% if current_user.is_authenticated %}
+                        <span class="welcome-text">Welcome, {{ current_user.username }}</span>
+                    {% endif %}
+                </div>
+            </header>
+
+            <div class="content-area">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert">
+                                <i class="fas fa-info-circle"></i>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

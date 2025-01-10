@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}My Courses{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Total Courses</h3>
+                <p class="stat-number">{{ course_progress|length }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-spinner"></i>
+            </div>
+            <div class="stat-info">
+                <h3>In Progress</h3>
+                <p class="stat-number">{{ course_progress|selectattr('status', 'equalto', 'In Progress')|list|length }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Completed</h3>
+                <p class="stat-number">{{ course_progress|selectattr('status', 'equalto', 'Completed')|list|length }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <section class="dashboard-section">
+        <div class="section-header">
+            <h2><i class="fas fa-graduation-cap"></i> My Learning Path</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mandatory">Required</button>
+                <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+        </div>
+
+        {% if course_progress %}
+        <div class="course-grid">
+            {% for progress in course_progress %}
+            <div class="course-card" 
+                 data-status="{{ progress.status|lower|replace(' ', '-') }}"
+                 data-mandatory="{{ 'mandatory' if progress.course.is_mandatory else 'optional' }}">
+                <div class="course-platform-badge {{ progress.course.platform.lower() }}">
+                    {{ progress.course.platform }}
+                </div>
+                <h3>{{ progress.course.name }}</h3>
+                <p>{{ progress.course.description }}</p>
+                <div class="course-meta">
+                    <span class="category-badge">{{ progress.course.category }}</span>
+                    {% if progress.course.is_mandatory %}
+                    <span class="mandatory-badge">Required</span>
+                    {% endif %}
+                </div>
+                <div class="progress-section">
+                    <h4>Progress Status</h4>
+                    <div class="status-buttons">
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='Not Started') }}" 
+                           class="status-btn {% if progress.status == 'Not Started' %}active{% endif %}">
+                            <i class="far fa-circle"></i> Not Started
+                        </a>
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='In Progress') }}"
+                           class="status-btn {% if progress.status == 'In Progress' %}active{% endif %}">
+                            <i class="fas fa-spinner"></i> In Progress
+                        </a>
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='Completed') }}"
+                           class="status-btn {% if progress.status == 'Completed' %}active{% endif %}">
+                            <i class="fas fa-check"></i> Completed
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-books"></i>
+            <h3>No Courses Assigned</h3>
+            <p>You don't have any courses assigned yet.</p>
+        </div>
+        {% endif %}
+    </section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+
+            courseCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === 'mandatory') {
+                    card.style.display = card.dataset.mandatory === 'mandatory' ? 'block' : 'none';
+                } else {
+                    card.style.display = card.dataset.status === filter ? 'block' : 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %} 

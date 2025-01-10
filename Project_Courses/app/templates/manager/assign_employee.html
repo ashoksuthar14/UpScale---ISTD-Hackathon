@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Assign Employees{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="assign-employee-container">
+        <h1>Assign Employees to {{ project.name }}</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.employees.label }}
+                {{ form.employees(class="form-control", size=10) }}
+                {% if form.employees.errors %}
+                    {% for error in form.employees.errors %}
+                        <span class="error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <small class="form-text">Hold Ctrl/Cmd to select multiple employees</small>
+            </div>
+            {{ form.submit(class="btn") }}
+            <a href="{{ url_for('manager.dashboard') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %} 

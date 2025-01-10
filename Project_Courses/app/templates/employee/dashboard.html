@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Active Projects</h3>
+                <p class="stat-number">{{ assignments|length }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Assigned Courses</h3>
+                <p class="stat-number">{{ course_progress|length }}</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Completed Courses</h3>
+                <p class="stat-number">{{ course_progress|selectattr('status', 'equalto', 'Completed')|list|length }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="dashboard-section">
+        <div class="section-header">
+            <h2><i class="fas fa-tasks"></i> My Projects</h2>
+        </div>
+        {% if assignments %}
+        <div class="project-grid">
+            {% for assignment in assignments %}
+            <div class="project-card">
+                <div class="card-header">
+                    <h3>{{ assignment.project.name }}</h3>
+                    <span class="date-badge">
+                        <i class="far fa-calendar-alt"></i>
+                        {{ assignment.assigned_at.strftime('%Y-%m-%d') }}
+                    </span>
+                </div>
+                <p class="project-description">{{ assignment.project.description }}</p>
+                <div class="project-footer">
+                    <button class="btn-outline">
+                        <i class="fas fa-info-circle"></i> Details
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-clipboard"></i>
+            <h3>No Projects Assigned</h3>
+            <p>You don't have any projects assigned yet.</p>
+        </div>
+        {% endif %}
+    </section>
+
+    <!-- Courses Section -->
+    <section class="dashboard-section">
+        <div class="section-header">
+            <h2><i class="fas fa-graduation-cap"></i> My Courses</h2>
+        </div>
+        {% if course_progress %}
+        <div class="course-grid">
+            {% for progress in course_progress %}
+            <div class="course-card">
+                <div class="course-platform-badge {{ progress.course.platform.lower() }}">
+                    {{ progress.course.platform }}
+                </div>
+                <h3>{{ progress.course.name }}</h3>
+                <p>{{ progress.course.description }}</p>
+                <div class="course-meta">
+                    <span class="category-badge">{{ progress.course.category }}</span>
+                    {% if progress.course.is_mandatory %}
+                    <span class="mandatory-badge">Required</span>
+                    {% endif %}
+                </div>
+                <div class="progress-section">
+                    <h4>Progress Status</h4>
+                    <div class="status-buttons">
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='Not Started') }}" 
+                           class="status-btn {% if progress.status == 'Not Started' %}active{% endif %}">
+                            <i class="far fa-circle"></i> Not Started
+                        </a>
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='In Progress') }}"
+                           class="status-btn {% if progress.status == 'In Progress' %}active{% endif %}">
+                            <i class="fas fa-spinner"></i> In Progress
+                        </a>
+                        <a href="{{ url_for('employee.update_course_status', progress_id=progress.id, status='Completed') }}"
+                           class="status-btn {% if progress.status == 'Completed' %}active{% endif %}">
+                            <i class="fas fa-check"></i> Completed
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-books"></i>
+            <h3>No Courses Assigned</h3>
+            <p>You don't have any courses assigned yet.</p>
+        </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %} 
