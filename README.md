@@ -178,8 +178,8 @@
   - Interactive and user-friendly interfaces for all features.
 
 ### Deployment Platform
-- **Hosting**: AWS, Heroku.
-- **Database**: MongoDB Atlas.
+- **Hosting**: Vercel,Netlify,Python everywhere , streamlit cloud
+- **Database**: Postgres,Sqllite.
 
 ---
 
