@@ -1,5 +1,17 @@
 # UpScale - It's Never Late to Raise the Bar
 
+----
+
+## Links 
+
+### [UpScale - Website ](https://upscale-amature-coder.netlify.app//)
+
+### [Demo Video](https://youtube.com/watch?v=Ip8Mago4hqA&feature=shared/)
+
+### [PPT Presentation](https://youtube.com/watch?v=Ip8Mago4hqA&feature=shared/)
+
+
+
 ## Overview
 
 **UpScale** is a cutting-edge project that leverages Artificial Intelligence (AI) to provide personalized learning experiences tailored to workplace environments. It empowers employees to enhance their skills through personalized roadmaps, AI-curated courses, and interactive features. Simultaneously, it equips managers with powerful tools for task management and monitoring. UpScale integrates Machine Learning, Deep Learning, Reinforcement Learning, Generative AI, LangChain, CrewAI, and AI agents to deliver an AI-driven web solution.
