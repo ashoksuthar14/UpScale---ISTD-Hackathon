@@ -1,0 +1,216 @@
+.profile-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 650px auto 2rem;
+  margin-left: 200px;
+  background: #ffffff;
+}
+
+.profile-nav {
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #ff0000;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.profile-info .role {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Teams Section */
+.teams-section {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.teams-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.team-group {
+  margin-bottom: 2rem;
+}
+
+.team-group h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  min-width: 250px;
+}
+
+.member-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-details h4 {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.member-details p {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* Projects Section */
+.projects-section {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.project-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #e9ecef;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 1rem;
+    margin-top: 100px;
+    margin-left: 0;
+  }
+
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-members {
+    flex-direction: column;
+  }
+
+  .member-item {
+    min-width: auto;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+} 

@@ -1,0 +1,230 @@
+.profile-container {
+  max-width: 1200px;
+  margin-top: 650px;
+  margin-left:200px;
+  padding: 0 2rem;
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+/* Profile Info Card */
+.profile-info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.profile-email {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.profile-role {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.profile-company {
+  color: #666;
+}
+
+/* Profile Details */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+/* Badges */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.badge-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-type {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.badge-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.badge-item:hover .badge-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Badge Colors */
+.badge-yellow { color: #eab308; }
+.badge-blue { color: #3b82f6; }
+.badge-green { color: #22c55e; }
+.badge-red { color: #ef4444; }
+.badge-purple { color: #a855f7; }
+.badge-indigo { color: #6366f1; }
+.badge-orange { color: #f97316; }
+.badge-pink { color: #ec4899; }
+
+/* Skills */
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-level {
+  color: #666;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Projects */
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-name {
+  font-weight: 500;
+}
+
+.project-role {
+  background: #f1f5f9;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .badges-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+} 

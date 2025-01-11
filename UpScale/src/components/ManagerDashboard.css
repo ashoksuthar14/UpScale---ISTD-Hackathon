@@ -1,0 +1,290 @@
+.manager-dashboard {
+  min-height: 100vh;
+  background: #ffffff;
+  margin-top:300px;
+}
+
+/* Navbar Styles */
+.manager-nav {
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #ff0000;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-section:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.profile-icon {
+  font-size: 1.25rem;
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  margin-left: 135px;
+}
+
+.cards-container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  margin-top:200px;
+  margin-left:200px;
+}
+
+/* Card Styles */
+.dashboard-card {
+  background: #1a1a1a;
+  border-radius: 1rem;
+  margin-top: 0;
+  margin-left:55px;
+  overflow: hidden;
+  height:400px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.card-content h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+
+.card-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .manager-nav {
+    padding: 1rem;
+  }
+} 
+
+/* Add these new styles to your existing CSS */
+
+.welcome-section {
+  max-width: 1200px;
+  width: 100%;
+  margin-top:300px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  
+}
+
+.stat-card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  color: #9ca3af;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-number {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  
+}
+
+.section-title p {
+  color: #4b5563;
+  font-size: 1.1rem;
+}
+
+/* Update existing styles */
+.dashboard-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.75rem;
+  }
+} 
+
+/* Add these styles to your existing CSS */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+  
+  .nav-content {
+    padding: 0 1rem;
+  }
+} 
