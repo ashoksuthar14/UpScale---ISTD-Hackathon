@@ -21,7 +21,7 @@
   - Updates the roadmap based on feedback for continuous improvement.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/Roadmap Generator 0.png" alt="Roadmap Generator 0" width="400" />
+    
     <img src="img/Roadmap Generator 1.png" alt="Roadmap Generator 1" width="400" />
     <img src="img/Roadmap Generator 2.png" alt="Roadmap Generator 2" width="400" />
     <img src="img/Roadmap Generator 3.png" alt="Roadmap Generator 3" width="400" />
