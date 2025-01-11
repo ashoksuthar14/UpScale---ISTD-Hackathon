@@ -147,7 +147,7 @@ Interactive Q&A: Answers employee queries related to courses, projects, and othe
 -**Learning Recommendations**: Suggests courses and materials that align with the employee’s learning goals.
 -**Forum Integration**: Redirects users to the forum when it cannot answer a question.
 -**Continuous Improvement**: Collects user feedback to improve responses and the learning experience over time.
-Images: <div style="display: flex;"> <img src="img/AI_Chatbot.png" alt="AI Chatbot" width="400" /> </div>
+Images: <div style="display: flex;"> <img src="chatbot.png" alt="AI Chatbot" width="400" /> </div>
 
 
 
