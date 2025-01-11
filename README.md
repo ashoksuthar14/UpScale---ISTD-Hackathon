@@ -21,10 +21,10 @@
   - Updates the roadmap based on feedback for continuous improvement.
 - **Images**:
   <div style="display: flex;">
-    
-    <img src="img/Roadmap Generator 1.png" alt="Roadmap Generator 1" width="200" />
-    <img src="img/Roadmap Generator 2.png" alt="Roadmap Generator 2" width="200" />
-    <img src="img/Roadmap Generator 3.png" alt="Roadmap Generator 3" width="200" />
+    <img src="img/Roadmap Generator 0.png" alt="Roadmap Generator 0" width="400" />
+    <img src="img/Roadmap Generator 1.png" alt="Roadmap Generator 1" width="400" />
+    <img src="img/Roadmap Generator 2.png" alt="Roadmap Generator 2" width="400" />
+    <img src="img/Roadmap Generator 3.png" alt="Roadmap Generator 3" width="400" />
   </div>
 
 #### 2. YouTube University
@@ -36,8 +36,8 @@
   - Provides a distraction-free interface to focus on learning.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/Youtube `1.png" alt="Youtube 1" width="200" />
-    <img src="img/youtube 2.png" alt="Youtube 2" width="200" />
+    <img src="img/Youtube `1.png" alt="Youtube 1" width="400" />
+    <img src="img/youtube 2.png" alt="Youtube 2" width="400" />
   </div>
 
 #### 3. Quiz Time
@@ -51,9 +51,9 @@
   - Provides actionable feedback for improvement.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/test1.png" alt="Test 1" width="200" />
-    <img src="img/test2.png" alt="Test 2" width="200" />
-    <img src="img/test3.png" alt="Test 3" width="200" />
+    <img src="img/test1.png" alt="Test 1" width="400" />
+    <img src="img/test2.png" alt="Test 2" width="400" />
+    <img src="img/test3.png" alt="Test 3" width="400" />
   </div>
 
 #### 4. Project Course
@@ -68,8 +68,8 @@
     - Password: password124
 - **Images**:
   <div style="display: flex;">
-    <img src="img/project course 1.png" alt="Project Course 1" width="200" />
-    <img src="img/project course 2.png" alt="Project Course 2" width="200" />
+    <img src="img/project course 1.png" alt="Project Course 1" width="400" />
+    <img src="img/project course 2.png" alt="Project Course 2" width="400" />
   </div>
 
 ---
@@ -86,10 +86,10 @@
   - A third agent allocates tasks to employees.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/manager1.png" alt="Manager 1" width="200" />
-    <img src="img/manager2.png" alt="Manager 2" width="200" />
-    <img src="img/manager3.png" alt="Manager 3" width="200" />
-    <img src="img/manager4.png" alt="Manager 4" width="200" />
+    <img src="img/manager1.png" alt="Manager 1" width="400" />
+    <img src="img/manager2.png" alt="Manager 2" width="400" />
+    <img src="img/manager3.png" alt="Manager 3" width="400" />
+    <img src="img/manager4.png" alt="Manager 4" width="400" />
   </div>
 
 #### 2. Status Dashboard
@@ -102,8 +102,8 @@
   - Allows employees to edit and update progress.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/status 1.png" alt="Status 1" width="200" />
-    <img src="img/status 2.png" alt="Status 2" width="200" />
+    <img src="img/status 1.png" alt="Status 1" width="400" />
+    <img src="img/status 2.png" alt="Status 2" width="400" />
   </div>
 
 #### 3. Project Course
@@ -116,7 +116,7 @@
     - Password: password123
 - **Images**:
   <div style="display: flex;">
-    <img src="img/manager project course 1.png" alt="Manager Project Course 1" width="200" />
+    <img src="img/manager project course 1.png" alt="Manager Project Course 1" width="400" />
   </div>
 
 ---
@@ -131,82 +131,81 @@
   - Voting system ensures the best answers surface.
 - **Images**:
   <div style="display: flex;">
-    <img src="img/Forum 2.png" alt="Forum 2" width="200" />
+    <img src="img/Forum 2.png" alt="Forum 2" width="400" />
   </div>
 
 ---
 
-### AI Coach
+### AI-Driven Features
 
-- **Description**: An AI chatbot that answers employee questions. If the question is outside its scope, it directs users to the forum.
-- **Technologies**: AI model integration.
+#### AI-Powered Analytics
+
+- **Description**: Provides detailed insights into employee learning patterns, task progress, and overall performance.
+- **Technologies**: Machine Learning, Generative AI.
 - **Functionality**:
-  - Provides instant answers to queries.
-  - Connects users to the forum for unresolved queries.
-- **Images**:
-  <div style="display: flex;">
-    <img src="img/Forum 2.png" alt="AI Coach Forum 2" width="200" />
-  </div>
+  - Tracks learning engagement and completion rates.
+  - Generates reports for both employees and managers.
+  - Offers predictive analytics for skill gaps and career growth.
+
+#### Adaptive AI Agent
+
+- **Description**: Acts as a virtual assistant for both employees and managers.
+- **Technologies**: LangChain, AI Agents.
+- **Functionality**:
+  - Answers queries related to tasks, projects, and roadmaps.
+  - Provides suggestions for skill enhancement.
+  - Offers reminders for deadlines and progress updates.
 
 ---
 
-## Tech Stack
+## Deployment Details
 
-- **Frontend**: React.js, Tailwind CSS.
-- **Backend**: Flask.
-- **Database**: PostgreSQL, SQLite, SQLAlchemy.
-- **AI Tools**: LangChain, CrewAI, Gemini API, Reinforcement Learning.
-- **Learning API**: YouTube API.
-- **Frameworks**: Streamlit.
+### Backend
+- **Tech Stack**: Flask, LangChain, AI Agents, Gemini API.
+- **Key Features**:
+  - API endpoints for roadmap generation, task management, and analytics.
+
+### Frontend
+- **Tech Stack**: React.js, Streamlit, Tailwind CSS.
+- **Key Features**:
+  - Interactive and user-friendly interfaces for all features.
+
+### Deployment Platform
+- **Hosting**: AWS, Heroku.
+- **Database**: MongoDB Atlas.
 
 ---
 
-## How to Run the Project
+## Getting Started
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/username/upscale.git
-   ```
-2. **Install Dependencies**:
+### Prerequisites
+1. Install Python 3.9+.
+2. Install Node.js 14+.
+3. Clone the repository.
+
+### Installation
+1. Install backend dependencies:
    ```bash
    pip install -r requirements.txt
+   ```
+2. Install frontend dependencies:
+   ```bash
    npm install
    ```
-3. **Start Backend Server**:
+
+### Running the Application
+1. Start the backend server:
    ```bash
    flask run
    ```
-4. **Start Frontend Server**:
+2. Start the frontend server:
    ```bash
    npm start
    ```
-5. **Access the Application**: Open your browser and navigate to `http://localhost:3000`.
-
----
-
-## Contribution Guidelines
-
-1. Fork the repository.
-2. Create a new branch for your feature.
-3. Commit your changes and submit a pull request.
-4. Ensure your code follows the existing coding standards.
-
----
-
-## Future Enhancements
-
-- Integration with third-party LMS platforms.
-- Advanced analytics for managers.
-- Gamification elements for employee engagement.
-- Multi-language support.
 
 ---
 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-**UpScale** is your one-stop solution to elevate workplace learning and management using the power of AI. Raise the bar today!
 
