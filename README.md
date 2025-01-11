@@ -22,7 +22,7 @@
   - Updates the roadmap based on feedback for continuous improvement.
 - **Image**:
   ![Roadmap Generator](path/to/image1.png)
-  <img src="img/Roadmap Generator 1" />
+  <img src="img/Roadmap Generator 1.png" />
 
 #### 2. YouTube University
 - **Description**: A distraction-free learning platform that integrates YouTube API to provide courses aligned with the personalized roadmap.
