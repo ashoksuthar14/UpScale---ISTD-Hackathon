@@ -163,6 +163,9 @@
 
 ## Deployment Details
 
+------
+<img src="Tech Stack (1).jpg" alt="Forum 2" width="400" />
+---
 ### Backend
 - **Tech Stack**: Flask, LangChain, AI Agents, Gemini API.
 - **Key Features**:
