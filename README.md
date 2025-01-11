@@ -138,6 +138,22 @@
   </div>
 
 ---
+### AI Upskill Chatbot
+- **Description**: An interactive virtual assistant that helps employees enhance their skills and navigate through their personalized learning journey. It answers questions, provides recommendations, and guides users through learning resources and quizzes.
+-**Technologies**: React.js, Flask, Gemini API, Langchain, AI Agents, Crew AI, PostgreSQL, SQLite.
+Functionality:
+-**Personalized Learning Support**: Provides tailored learning recommendations based on the employee's skills and goals.
+Interactive Q&A: Answers employee queries related to courses, projects, and other learning resources.
+-**Learning Recommendations**: Suggests courses and materials that align with the employee’s learning goals.
+-**Forum Integration**: Redirects users to the forum when it cannot answer a question.
+-**Continuous Improvement**: Collects user feedback to improve responses and the learning experience over time.
+Images: <div style="display: flex;"> <img src="img/AI_Chatbot.png" alt="AI Chatbot" width="400" /> </div>
+
+
+
+
+
+
 
 ### AI-Driven Features
 
